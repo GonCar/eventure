@@ -1,0 +1,61 @@
+<div class="create-wrapper">
+    <h1>Event Settings</h1>
+    <div class="event-settings">
+        <div class="left-side">
+            <% if(errors.length > 0) { %>
+                <div class="alert">
+                    <% for (error of errors){ %>
+                        <%= error %>
+                            <br>
+                            <% } %>
+                </div>
+                <% } %>
+                    <form action="/events/create" method="POST" id="create-event-form">
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" name="title" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <textarea maxlength="160" name="description" cols="30" rows="10" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group date-group">
+                            <div class="date">
+                                <label for="">Day</label>
+                                <input type="date" name="day" class="form-control">
+                            </div>
+                            <div class="from-hour">
+                                <label for="">From</label>
+                                <input type="hour" name="hour" class="form-control">
+                            </div>
+                            <div class="to-hour">
+                                <label for="">To</label>
+                                <input type="text" name="toHour" class="form-control">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Location</label>
+                            <input name="location" id="pac-input" class="controls" type="text" placeholder="Search Box">
+                            <div id="map"></div>
+                        </div>
+
+                        <div class="form-group form-btn-container">
+                            <button type="submit" class="form-btn">Create</button>
+                        </div>
+                    </form>
+
+        </div>
+        <div class="right-side">
+            <div class="mail-container">
+                <label for="">Add Guests</label>
+                <div class="input-mail-group">
+                    <input id="emailInput" type="text" class="form-control" value="">
+                    <a id="addEmail" type="">Add</a>
+                </div>
+            </div>
+            <div class="people-sended">
+                <h5>Email List</h5>
+            </div>
+        </div>
+    </div>
+</div>

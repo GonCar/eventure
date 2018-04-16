@@ -1,0 +1,55 @@
+<div class="event-wrapper">
+
+    <div class="container event-container col-12">
+        <div class="row">
+            <% events.forEach(function(event) { %>
+                <div class="nextEvent">
+                    <h1>
+                        <%= event.title %>
+                    </h1>
+                    <p class="p-description">
+                        <%= event.description %>
+                    </p>
+                    <div class="daysUntill">
+                        <p>
+                            <i class="material-icons">event</i>
+                            <%= event.day %>
+                        </p>
+                        <p>
+                            <i class="material-icons">schedule</i>
+                            From
+                            <%= event.hour %>
+                                to
+                                <%= event.toHour %>
+                        </p>
+                    </div>
+
+                    <div class="pictures">
+                        <p style="font-size:16px;line-height:20px">
+                            <i class="material-icons">place</i>
+                            <%= event.location %>
+                        </p>
+                    </div>
+
+                    <div class="icons">
+                        <div class="special-link">
+                            <a href="/events/<%=event.slug %>" class="singleEvent">View Event</a>
+                        </div>
+                        <div class="action-link">
+                            <a href="/events/<%=event.slug %>/edit" class="singleEvent">
+                                <i class="material-icons material-hover">edit</i>
+                            </a>
+                            <a href="/events/<%=event.slug %>/photos" class="singleEvent">
+                                <i class="material-icons material-hover">camera</i>
+                            </a>
+                            <a href="/events/<%=event.slug %>/delete" class="singleEvent">
+                                <i class="material-icons material-hover">delete</i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <% }) %>
+        </div>
+
+    </div>
+</div>

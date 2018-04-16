@@ -1,0 +1,51 @@
+<div class="login-wrapper">
+    <div class="login-box">
+        <img src="img/logoLogin.png" alt="">
+        <% if (typeof(flash) !== 'undefined' && flash.info) { %>
+            <div class="alert alert-info">
+                <%= flash.info %>
+            </div>
+            <% } %>
+                <form action="/login" method="POST">
+                    <div class="form-group <%= typeof error != 'undefined' && error.email ? 'has-error' : '' %>">
+                        <div class="input-group">
+                            <input style="margin-bottom:-15px" type="text" name="email" class="form-control" placeholder="email" value="<%= typeof user != 'undefined' && user.email ? user.email : '' %>">
+                        </div>
+                        <% if (typeof(error) != 'undefined' && error.email) { %>
+                            <label class="control-label">
+                                <%= error.email %>
+                            </label>
+                            <% } %>
+                    </div>
+
+                    <div class="form-group <%= typeof error != 'undefined' && error.password ? 'has-error' : '' %>">
+                        <div class="input-group">
+                            <input type="password" name="password" class="form-control" placeholder="Password">
+                        </div>
+                        <% if (typeof(error) != 'undefined' && error.password) { %>
+                            <label class="control-label">
+                                <%= error.password %>
+                            </label>
+                            <% } %>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="">Login</button>
+                    </div>
+                </form>
+
+                <hr>
+                <form action="/auth/google" method="POST" class="oauth-login">
+                    <div class="form-actions">
+                        <button type="submit" class="">
+                            <i class="fa fa-google"></i> Login with Google</button>
+                    </div>
+                </form>
+                <div class="panel-heading text-center">
+                    Don't have an account?
+                    <a href="/signup">Sign up </a>
+                    <!-- <a href="/logout">Logout</a> -->
+                </div>
+
+    </div>
+</div>

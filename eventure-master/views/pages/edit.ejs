@@ -1,0 +1,63 @@
+<div class="create-wrapper">
+    <h1>Edit
+        <%= event.title %>
+    </h1>
+    <div class="event-settings">
+        <div class="left-side">
+            <% if(errors.length > 0) { %>
+                <div class="alert">
+                    <% for (error of errors){ %>
+                        <%= error %>
+                            <br>
+                            <% } %>
+                </div>
+                <% } %>
+                    <form action="/events/<%= event.slug %> " method="POST">
+                        <div class="form-group">
+                            <label for="">Title</label>
+                            <input type="text" name="title" class="form-control" value="<%= event.title %>">
+                        </div>
+                        <div class="form-group">
+                            <label for="">Description</label>
+                            <input name="description" class="form-control" value="<%= event.description %>"></input>
+                        </div>
+                        <div class="form-group date-group">
+                            <div class="date">
+                                <label for="">Day</label>
+                                <input type="text" name="day" class="form-control" value="<%= event.day %>">
+                            </div>
+                            <div class="from-hour">
+                                <label for="">From</label>
+                                <input type="text" name="hour" class="form-control" value="<%= event.hour %>">
+                            </div>
+                            <div class="to-hour">
+                                <label for="">To</label>
+                                <input type="text" name="toHour" class="form-control" value="<%= event.toHour %>">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="">Location</label>
+                            <input name="location" id="pac-input" class="controls" type="text" placeholder="Search Box" value="<%= event.location %>">
+                            <div id="map" name="location"></div>
+                        </div>
+
+                        <div class="form-group form-btn-container">
+                            <button type="submit" class="form-btn">Update</button>
+                        </div>
+                    </form>
+        </div>
+        <div class="right-side">
+            <div class="mail-container">
+            </div>
+            <div class="people-sended">
+                <img src="" alt="">
+                <h5>Guest List</h5>
+                <% event.email.forEach(function(email, index) { %>
+                    <p>
+                        <%= event.email[index] %>
+                    </p>
+                    <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
